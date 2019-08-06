@@ -1,0 +1,534 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.wrap {
+    min-width: 786px;
+
+}
+
+.container {
+    max-width: 1200px;
+    min-width: 786px;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* header */
+header {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    z-index: 99;
+    /* background: #efefef; */
+    /* border: 1px solid red; */
+}
+
+header .logo {
+    position: absolute;
+    top: 8px;
+    left: 1%;
+}
+
+/* main-menu */
+header nav {
+    position: absolute;
+    top: 19px;
+    right: 0;
+    display: block;
+}
+
+header nav .depth1 > li {
+    float: left;
+    width: 120px;
+    text-align: center;
+    position: relative;
+}
+
+header nav .depth2 li {
+    background: #fff;
+}
+
+/* 1단계 메뉴 hover */
+header nav .depth1 > li:hover > a {
+    font-weight: bold;
+    color: #2980b9;
+}
+header nav .depth1 > li:hover > a:after {
+    content: '';
+    position: absolute;
+    width: 90px;
+    border-bottom: 2px solid #2980b9;
+    background: #2980b9;
+    left: 50%;
+    top: 40px;
+    transform: translateX(-50%);
+
+}
+
+/* 1단계 hover시 2단계 메뉴 표시 */
+header nav .depth1 > li:hover .depth2 {
+    opacity: 1;
+    height: auto;
+    transition: 0.4s;
+}
+
+header nav .depth1 > li a {
+    display: block;
+    padding: 10px 10px;
+}
+
+/* 2단계 메뉴(기본 비표시) */
+header nav .depth2 {
+    margin-top: 20px;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+header nav .depth2 a {
+    font-size: 0.8em;
+}
+
+/* hover */
+header nav .depth2 > li:hover > a {
+    background: #2980b9;
+    color: #fff;
+}
+
+/* 모바일 버튼 */
+#btn-toggle {
+    display: none;
+    padding: 10px;
+    position: absolute;
+    top: 15px;
+    right: 5%;
+    background: transparent;
+    border: 0;
+    font-size: 25px;
+}
+
+/* 모바일 메뉴 */
+.mobile-menu {
+    position: absolute;
+    padding: 10px 20px;
+}
+
+#side-menu {
+    width: 70%;
+    max-width: 400px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -70%;
+    z-index: 999;
+    background: #fff;
+    text-align: left;
+    overflow-y: auto;
+    transition: 0.5s;
+}
+
+.side-top {
+    position: relative;
+    height: 80px;
+    padding: 10px 20px;
+    text-align: left;
+    background: #34495e;
+}
+
+.side-top h1 {
+    font-size: 18px;
+    font-weight: 400;
+    position: absolute;
+    top: 12px;
+    color: #fff;
+    line-height: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 1.5px;
+    margin-top: -5px;
+}
+
+
+
+/* main-section part */
+.main_visual{
+    width: 100%;
+    height: 300px; 
+    background-image: url("../images/sub_main.jpeg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+}
+.box {
+    height: 80px;
+}
+.main_title{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    text-align: center;
+    transform: translatex(-50%);
+    color: white;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.main_title > h1{
+    letter-spacing: 2px;
+    font-size: 50px;
+}
+.main_title > p {
+    font-size: 28px;
+    margin-top: 10px;
+}
+.intro_btn ul{overflow: hidden;}
+.intro_btn ul li{
+    float: left;
+    width: 33.3333%;
+    height: 60px;
+    text-align: center;
+    background: #666666;
+    border-right: 1px solid white;
+    margin-top: 1rem;
+}
+.intro_btn ul li.show{
+    background: #2980b9;
+}
+.intro_btn ul li:last-child{
+    border-right: none;
+}
+.intro_btn ul li:hover{
+    background: #2980b9;
+}
+.intro_btn ul li a{
+    color: white; 
+    width: 100%;
+    display: block;
+    padding: 20px;
+}
+.intro_title{
+    margin-top: 100px;
+    text-align: center;
+}
+.intro_title h2 {
+    font-size: 36px;
+}
+.intro_title p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+.intro_title>h3{
+    font-size: 25px;
+    margin-top:1.5rem;
+    color:#2980b9;
+    margin-bottom: 1.5rem;
+}
+
+/* intro_visual */
+.intro_visual{
+    width: 100%;
+     overflow: hidden;}
+.intro_img{
+    width: 50%;
+    float: left;
+}
+.intro_img img {
+    width: 100%;
+}
+.intro_text{
+    width: 49%;
+    float: left;
+    height: 384px;
+    margin-right:none;
+    text-align: left;
+    margin-top: 70px;
+}
+.intro_text p {
+    margin-left: 30px;
+    font-size: 1.05em;
+}
+.intro_text span {
+    margin-bottom: 10px;
+}
+.intro_text>h4{
+    font-size: 1.5rem;
+    color:#c17846; 
+    margin-left: 30px;
+}
+
+/* content-about */
+.about #content {
+    height: 250px;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
+.about #content > .content-title {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about #content > .content-body {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.content-wedding p:last-child,
+.content-service p:last-child,
+.content-event p:last-child,
+.content-culture p:last-child {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.content-body > .content-wedding {
+    width: 25%;
+    text-align: center;
+    float: left;
+}
+
+.content-body > .content-service {
+    width: 25%;
+    text-align: center;
+    float: left;
+}
+
+.content-body > .content-event {
+    width: 25%;
+    text-align: center;
+    float: left;
+}
+
+.content-body > .content-culture {
+    width: 25%;
+    text-align: center;
+    float: left;
+}
+
+.content-wedding p:last-child {
+    margin-top: 20px;
+}
+
+.content-service p:last-child {
+    margin-top: 20px;
+}
+
+.content-event p:last-child {
+    margin-top: 20px;
+}
+
+.content-culture p:last-child {
+    margin-top: 20px;
+}
+
+/* footer */
+footer{
+    clear: both;
+    position: relative;
+    width: 100%; 
+    height: 80px;
+    background: #efefef;
+    top: 5px;
+}
+.footer-text {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    text-align: center;
+}
+.footer-text p {
+    font-size: 14px;
+}
+
+@media (max-width: 1210px) {
+    .intro_title h3 {
+        font-size: 1.3em;
+    }
+    .intro_img {
+        width: 90%;
+        float: none;
+        margin-left: 40px;
+    }
+    .intro_text {
+        margin-left: 40px;
+        height: auto;
+        text-align: center;
+        width: 87%;
+        float: none;
+        margin-top: 20px;
+    }
+    .intro_text p {
+        margin-left: 0;
+        font-size: 1.1em;
+        line-height: 25px;
+    }
+}
+
+/* 768px 기준  */
+@media (max-width: 768px) {
+    .wrap {
+        min-width: 768px;
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 768px;
+        min-width: 768px;
+        transition: 0.5s;
+    }
+
+    /* side-menu */
+    header nav {
+        display: none;
+    }
+
+    #side-menu.open {
+        right: 0;
+        transition: 0.5s;
+    }
+
+    .side-menu-list > .depth1 > li > a {
+        padding: 10px 20px;
+        position: relative;
+        font-size: 18px;
+        overflow: hidden;
+        border-bottom: 1px solid #ddd;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #333;
+        background: #fff;
+
+    }
+    .side-menu-list > .depth1 > li > a > i {
+        float: right;
+        font-size: 25px;
+        margin-right: 
+        5px;
+    }
+
+    .side-menu-list .depth2 {
+        overflow: hidden;
+        transition: max-height 0.3s;
+        max-height: 0;
+
+    }
+    .depth1 li:target .depth2 {
+        max-height: 20em;
+    }
+
+    .side-menu-list .depth2 a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 14px;
+        color: #2980b9;
+
+    }
+
+    /* 버튼 */
+    #btn-toggle {
+        display: block;
+    }
+
+    #hamburger {
+        position: relative;
+        right: -30px;
+        cursor: pointer;
+    }
+
+    #hamburger span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        margin: 5px 0;
+        background: #000;
+    }
+
+    .close-btn {
+        position: absolute;
+        right: 20px;
+        top: 27px;
+        margin: 0;
+    }
+
+    #close-x {
+        width: 30px;
+        display: block;
+        height: 30px;
+    }
+
+    #close-x span {
+        width: 30px;
+        height: 2px;
+        position: relative;
+        display: block;
+        left: 3px;
+        background: #fff;
+    }
+
+    #close-x .top-bar {
+        transform: rotate(45deg);
+        top: 14px;
+    }
+
+    #close-x .bottom-bar {
+        transform: rotate(-45deg);
+        top: 12px;
+    }
+
+
+
+    /* about */
+    .about #content {
+        height: 500px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    .content-body > .content-wedding,
+    .content-body > .content-service,
+    .content-body > .content-event,
+    .content-body > .content-culture {
+        width: 50%;
+    }
+
+    .content-wedding p:last-child,
+    .content-service p:last-child,
+    .content-event p:last-child,
+    .content-culture p:last-child {
+        font-size: 16px;
+    }
+
+    .content-body > .content-event {
+        clear: both;
+    }
+
+    .content-body > .content-wedding,
+    .content-body > .content-service {
+        margin-bottom: 20px;
+    }
+}

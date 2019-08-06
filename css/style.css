@@ -1,0 +1,830 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.wrap {
+    min-width: 786px;
+
+}
+
+.container {
+    max-width: 1200px;
+    min-width: 786px;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* header */
+header {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    z-index: 99;
+    /* background: #efefef; */
+    /* border: 1px solid red; */
+}
+
+header .logo {
+    position: absolute;
+    top: 8px;
+    left: 1%;
+}
+
+/* main-menu */
+header nav {
+    position: absolute;
+    top: 19px;
+    right: 0;
+    display: block;
+}
+
+header nav .depth1 > li {
+    float: left;
+    width: 120px;
+    text-align: center;
+    position: relative;
+}
+
+header nav .depth2 li {
+    background: #fff;
+}
+
+/* 1단계 메뉴 hover */
+header nav .depth1 > li:hover > a {
+    font-weight: bold;
+    color: #2980b9;
+}
+header nav .depth1 > li:hover > a:after {
+    content: '';
+    position: absolute;
+    width: 90px;
+    border-bottom: 2px solid #2980b9;
+    background: #2980b9;
+    left: 50%;
+    top: 40px;
+    transform: translateX(-50%);
+
+}
+
+/* 1단계 hover시 2단계 메뉴 표시 */
+header nav .depth1 > li:hover .depth2 {
+    opacity: 1;
+    height: auto;
+    transition: 0.4s;
+}
+
+header nav .depth1 > li a {
+    display: block;
+    padding: 10px 10px;
+}
+
+/* 2단계 메뉴(기본 비표시) */
+header nav .depth2 {
+    margin-top: 20px;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+header nav .depth2 a {
+    font-size: 0.8em;
+}
+
+/* hover */
+header nav .depth2 > li:hover > a {
+    background: #2980b9;
+    color: #fff;
+}
+
+/* 모바일 버튼 */
+#btn-toggle {
+    display: none;
+    padding: 10px;
+    position: absolute;
+    top: 15px;
+    right: 5%;
+    background: transparent;
+    border: 0;
+    font-size: 25px;
+}
+
+/* 모바일 메뉴 */
+.mobile-menu {
+    position: absolute;
+    padding: 10px 20px;
+}
+
+#side-menu {
+    width: 70%;
+    max-width: 400px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -70%;
+    z-index: 999;
+    background: #fff;
+    text-align: left;
+    overflow-y: auto;
+    transition: 0.5s;
+}
+
+.side-top {
+    position: relative;
+    height: 80px;
+    padding: 10px 20px;
+    text-align: left;
+    background: #34495e;
+}
+
+.side-top h1 {
+    font-size: 18px;
+    font-weight: 400;
+    position: absolute;
+    top: 12px;
+    color: #fff;
+    line-height: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 1.5px;
+    margin-top: -5px;
+}
+
+.box {
+    width: 100%;
+    height: 80px;
+}
+
+/* main-visual part */
+#main-visual {
+    width: 100%;
+    height: 650px;
+    position: relative;
+    background: #ccc;
+}
+
+.bg {
+    z-index: 2;
+    width: 100%;
+    height: 650px;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* slider */
+.slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slider .slide1,
+.slider .slide2,
+.slider .slide3 {
+    position: absolute;
+    transition: 1s;
+}
+
+.slide1,
+.slide2,
+.slide3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slide1 {
+    background-image: url('../images/visual01.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+
+.slide2 {
+    background-image: url('../images/visual02.jpg');
+    background-position: center center;
+    background-size: cover;
+    opacity: 0;
+}
+
+.slide3 {
+    background-image: url('../images/visual03.jpg');
+    background-position: center center;
+    background-size: cover;
+    opacity: 0;
+}
+
+/* indicator */
+#indicator {
+    /* clear: both; */
+    text-align: center;
+    padding-right: 20px;
+    position: absolute;
+    transform: translate(-50%);
+    /* bottom: 5%; */
+    left: 50%;
+    /* background: rgba(0, 0, 0, 0.7); */
+    /* width: 100%; */
+    /* height: 50px; */
+}
+
+#indicator li {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#indicator a {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    color: #333;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 50%;
+    border: 1px solid white;
+    text-decoration: none;
+    font-size: 6px;
+    transition: 0.2S;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#indicator li.on a {
+    background: white;
+    color: #fff;
+}
+
+/* main-text */
+#main-visual > .main-txt {
+    position: absolute;
+    text-align: center;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-txt h1 {
+    z-index: 3;
+    font-size: 3em;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+}
+
+.main-txt span {
+    font-size: 1.6em;
+    line-height: 2;
+}
+
+.main-txt p {
+    font-size: 1.1em;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.visual-bottom {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    bottom: 0;
+    height: 60px;
+    z-index: 3;
+}
+
+/* visual-bottom */
+.visual-bottom .button {
+    position: absolute;
+    text-align: center;
+    padding: 5px 10px;
+    height: 35px;
+    border: 2px solid white;
+    border-radius: 15px;
+    right: 2%;
+    top: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.visual-bottom .button:hover {
+    background: white;
+    color: black;
+}
+
+.visual-bottom .tell {
+    position: absolute;
+    border-radius: 50%;
+    align-items: center;
+    top: 15px;
+    padding: 0;
+    left: 2%;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+}
+
+.visual-bottom .tell > p {
+    position: absolute;
+    top: 4px;
+    left: 40px;
+    width: 150px;
+    color: white;
+}
+
+/* content-about */
+.about #content {
+    height: 350px;
+    margin-top: 100px;
+}
+
+.about #content > .content-title {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.content-title p {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.content-title h2 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.about #content > .content-body {
+    position: absolute;
+    width: 100%;
+    height: 540px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 100px;
+}
+
+.content-wedding p:last-child,
+.content-service p:last-child,
+.content-event p:last-child,
+.content-culture p:last-child {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.content-body > .content-wedding {
+    width: 25%;
+    text-align: center;
+    float: left;
+}
+
+.content-body > .content-service {
+    width: 25%;
+    text-align: center;
+    float: left;
+}
+
+.content-body > .content-event {
+    width: 25%;
+    text-align: center;
+    float: left;
+}
+
+.content-body > .content-culture {
+    width: 25%;
+    text-align: center;
+    float: left;
+}
+
+.content-wedding p:last-child {
+    margin-top: 20px;
+}
+
+.content-service p:last-child {
+    margin-top: 20px;
+}
+
+.content-event p:last-child {
+    margin-top: 20px;
+}
+
+.content-culture p:last-child {
+    margin-top: 20px;
+}
+
+
+/* 웨딩홀 미리보기 */
+.preview {
+    position: relative;
+    min-width: 786px;
+    clear: both;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.07);
+    margin-top: 50px;
+}
+
+.preview_title {
+    padding-top: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.preview_title p {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.preview_title h2 {
+    font-size: 36px;
+}
+
+.info_visual {
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.info_navi {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.info_navi > li {
+    border-right: 2px solid #fff;
+    float: left;
+    width: 20%;
+    height: 50px;
+}
+.info_navi > li:last-child {
+    border: none;
+}
+
+.info_navi .choice {
+    background: white;
+}
+.info_navi .choice a {
+    color: #000;
+    font-weight: bold;
+}
+
+
+.info_navi > li > a {
+    display: block;
+    line-height: 50px;
+    color: #fff;
+    text-align: center;
+}
+
+.info_img {
+    width: 100%;
+    position: relative;
+    overflow: hidden;   
+}
+
+.slide_list {
+    width: 500%;
+    transition: 0.4s;
+}
+
+.slide_list > li {
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
+.info_img > ul > li > a > img {
+    display: block;
+    width: 100%;
+}
+
+/* 오시는길 교통 지도 */
+.traffic_guide{
+    width: 100%;
+    height: 633px;
+    margin-bottom: 100px;
+    overflow: hidden;
+}
+.traffic_title{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.traffic_title h2{
+    font-size: 36px;
+}
+.traffic_title p{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.map{
+    width: 50%;
+    height: 475px;
+    float: left;
+    margin-bottom: 100px;
+}
+.traffic{
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 475px;
+    background: #333;
+    padding: 20px 30px;
+}
+.traffic_content{
+    text-align: left;
+    line-height: 1.5;
+    padding: 10px;
+    color: white;
+    width: 90%;
+}
+.traffic_content p {
+    margin-bottom: 20px;
+}
+.traffic_content p span {
+    font-size: 18px;
+}            
+.traffic_content p .text {
+    font-size: 14px;
+}
+.traffic_content p i {
+    font-size: 18px;
+}
+.map-more {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #2980b9;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+}
+.map-more i {
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* footer */
+footer{
+    position: relative;
+    width: 100%; 
+    height: 80px;
+    background: #efefef;
+    top: 5px;
+}
+.footer-text {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    text-align: center;
+}
+.footer-text p {
+    font-size: 14px;
+}
+
+/* 768px 기준  */
+@media (max-width: 768px) {
+    .wrap {
+        min-width: 768px;
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 768px;
+        min-width: 768px;
+        transition: 0.5s;
+    }
+
+    /* side-menu */
+    header nav {
+        display: none;
+    }
+
+    #side-menu.open {
+        right: 0;
+        transition: 0.5s;
+    }
+
+    .side-menu-list > .depth1 > li > a {
+        padding: 10px 20px;
+        position: relative;
+        font-size: 18px;
+        overflow: hidden;
+        border-bottom: 1px solid #ddd;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #333;
+        background: #fff;
+
+    }
+    .side-menu-list > .depth1 > li > a > i {
+        float: right;
+        font-size: 25px;
+        margin-right: 
+        5px;
+    }
+
+    .side-menu-list .depth2 {
+        overflow: hidden;
+        transition: max-height 0.3s;
+        max-height: 0;
+
+    }
+    .depth1 li:target .depth2 {
+        max-height: 20em;
+    }
+
+    .side-menu-list .depth2 a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 14px;
+        color: #2980b9;
+
+    }
+
+    /* 버튼 */
+    #btn-toggle {
+        display: block;
+    }
+
+    #hamburger {
+        position: relative;
+        right: -30px;
+        cursor: pointer;
+    }
+
+    #hamburger span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        margin: 5px 0;
+        background: #000;
+    }
+
+    .close-btn {
+        position: absolute;
+        right: 20px;
+        top: 27px;
+        margin: 0;
+    }
+
+    #close-x {
+        width: 30px;
+        display: block;
+        height: 30px;
+    }
+
+    #close-x span {
+        width: 30px;
+        height: 2px;
+        position: relative;
+        display: block;
+        left: 3px;
+        background: #fff;
+    }
+
+    #close-x .top-bar {
+        transform: rotate(45deg);
+        top: 14px;
+    }
+
+    #close-x .bottom-bar {
+        transform: rotate(-45deg);
+        top: 12px;
+    }
+
+    /* visual */
+    .visual-bottom .button {
+        right: 10px;
+    }
+    .slide1,.slide2,.slide3 {
+        width: 786px;
+    }
+
+    /* about */
+    .about #content {
+        height: 620px;
+    }
+
+    .content-body > .content-wedding,
+    .content-body > .content-service,
+    .content-body > .content-event,
+    .content-body > .content-culture {
+        width: 50%;
+    }
+
+    .content-wedding p:last-child,
+    .content-service p:last-child,
+    .content-event p:last-child,
+    .content-culture p:last-child {
+        font-size: 16px;
+    }
+
+    .content-body > .content-event {
+        clear: both;
+    }
+
+    .content-body > .content-wedding,
+    .content-body > .content-service {
+        margin-bottom: 20px;
+    }
+
+    /* preview */
+    .preview {
+        position: relative;
+        width: 100%;
+        left: -10px;
+    }
+    .slide_list {
+        width: 600%;
+    }
+    .slide_list img {
+        width: 786px;
+    }
+    .slide_list li:nth-child(2) img {
+        margin-left: -18px;
+    }
+    .slide_list li:nth-child(3) img {
+        margin-left: -35px;
+    }
+    .slide_list li:nth-child(4) img {
+        margin-left: -52px;
+    }
+    .slide_list li:nth-child(5) img {
+        margin-left: -60px;
+    }
+    .info_img {
+        height: 327px;
+    }
+    .info_img img {
+        width: 786px;
+    }
+    .slide_list > li {
+        width: 786px;
+    }
+
+    .traffic_guide {
+        height: 100%;
+    }
+    .map, .traffic {
+        float: none;
+    }
+    .map {
+        width: 100%;
+        height: 300px;
+        margin: 0;
+    }
+    .traffic {
+        width: 100%;
+        height: 400px;
+        padding: 10px 30px
+    }
+    .traffic_content {
+        width: 100%;
+        font-size: 1.5em;
+    }
+    .traffic_content p {
+        margin-bottom: 10px;
+    }
+    .traffic_content p:first-child,
+    .traffic_content p:nth-child(2) {
+        width: 50%;
+        float: left;
+    }
+    .map-more {
+        width: 8%;
+        height: 15%;
+    }
+    .map-more i {
+        left: 32px;
+    }
+}
